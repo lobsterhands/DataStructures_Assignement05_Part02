@@ -55,5 +55,30 @@ namespace CS3358_SP16_A5P2
    void ShowAll_BF(PNode* pListHead, ostream& outs)
    {
       // to be implemented (part of assignment)
+      // See StackQueueEG02 from Lee's example page
+
+      // Breadth-first is a queue-based problem
+      // It will use a queue of pointers to Child nodes
+//
+//      if (head == 0) return
+      if (pListHead == 0) return;
+
+//      create queue q of CNode*
+      cnPtrQueue CNodeQueue;
+      CNode *cursor = 0;
+      while (pListHead != 0) {
+         if (pListHead->data != 0) {
+            CNodeQueue.push(pListHead->data);
+         }
+         pListHead = pListHead->link;
+      }
+      while ( ! CNodeQueue.empty() ) {
+         cursor = CNodeQueue.front();
+         CNodeQueue.pop();
+         outs << pListHead->data << " ";
+         if ( cursor->link != 0 )
+            CNodeQueue.push( cursor->link );
+      }
+
    }
 }

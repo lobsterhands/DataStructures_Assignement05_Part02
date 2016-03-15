@@ -7,6 +7,8 @@ cnPtrQueue.o: cnPtrQueue.cpp cnPtrQueue.h  nodes_LLoLL.h
 	g++ -Wall -ansi -pedantic -c cnPtrQueue.cpp
 nodes_LLoLL.o: nodes_LLoLL.cpp nodes_LLoLL.h
 	g++ -Wall -ansi -pedantic -c nodes_LLoLL.cpp
+go:
+	./a5p2
 test:
 	./a5p2 auto < a5p2_test.in > a5p2_test.out
 clean:
